@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node bin/main.js",
-    "publish": "npm version patch && npm publish --access public"
+    "deploy": "npm version patch && npm publish --access public"
   },
   "keywords": [
     "cli",
