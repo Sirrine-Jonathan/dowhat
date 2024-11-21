@@ -4,7 +4,9 @@
   "description": "CLI to print out readme and available npm scripts in the package",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node bin/main.js",
+    "publish": "npm version patch && npm publish --access public"
   },
   "keywords": [
     "cli",
@@ -14,10 +16,7 @@
   "author": "sirrineprogramming@gmail.com",
   "license": "ISC",
   "bin": {
-    "readme": "bin/readme.js",
-    "ascii": "bin/ascii.js",
-    "scripts": "bin/scripts.js",
-    "help": "bin/help.js"
+    "dowhat": "bin/main.js"
   },
   "dependencies": {
     "chalk": "^4.1.2",
