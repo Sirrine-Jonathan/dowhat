@@ -3,6 +3,7 @@
   "version": "1.0.7",
   "description": "CLI to print out readme and available npm scripts in the package",
   "main": "index.js",
+  "repository": "https://github.com/Sirrine-Jonathan/dowhat",
   "scripts": {
     "test": "jest",
     "start": "node bin/main.js",
