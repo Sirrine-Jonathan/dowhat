@@ -1,5 +1,3 @@
-#! /usr/bin/env node
-
 const fs = require('fs');
 const path = require('path');
 const lexer = require('marked').lexer;
@@ -25,6 +23,7 @@ const printReadme = async () => {
 		switch(token.type) {
 			case 'heading':
 				console.log(chalk.green.bold(token.text));
+				console.log();
 				break;
 			case 'text':
 				console.log(token.text);
@@ -32,6 +31,8 @@ const printReadme = async () => {
 			case 'list':
 				console.log(token.raw);
 				break;
+			case 'code':
+				console.log(chalk.cyan(token.text));
 			case 'space':
 				console.log();
 				break;

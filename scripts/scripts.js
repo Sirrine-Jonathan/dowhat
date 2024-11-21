@@ -1,4 +1,3 @@
-#! /usr/bin/env node
 const current = process.cwd();
 const path = require('path');
 const package = require(path.join(current, 'package.json'));

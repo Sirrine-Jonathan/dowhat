@@ -12,6 +12,9 @@ switch(process.argv[2]) {
 	case 'help':
 		require('../scripts/help');
 		break;
+	case 'meta':
+		require('../scripts/meta');
+		break;
 	default:
 		main(() => {
 			require('../scripts/help');

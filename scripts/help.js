@@ -1,5 +1,3 @@
-#! /usr/bin/env node
-
 console.log(`Available commands:
 readme - print out readme
 scripts - print out available scripts
