@@ -1,8 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import { lexer } from 'marked';
+import { marked } from 'marked';
+import { markedTerminal } from 'marked-terminal';
 import chalk from 'chalk';
+
 const current = process.cwd();
+
+marked.use(markedTerminal());
+
 const printReadme = async () => {
 	const readmePath = path.join(current, 'README.md');
 	const readmeMdxPath = path.join(current, 'README.mdx');
@@ -18,28 +23,7 @@ const printReadme = async () => {
 	}
 	const readme = fs.readFileSync(fileToRead);
 	const text = readme.toString();
-	const lex = lexer(text);
-	lex.forEach(token => {
-		switch(token.type) {
-			case 'heading':
-				console.log(chalk.green.bold(token.text));
-				console.log();
-				break;
-			case 'text':
-				console.log(token.text);
-				break;
-			case 'list':
-				console.log(token.raw);
-				break;
-			case 'code':
-				console.log(chalk.cyan(token.text));
-			case 'space':
-				console.log();
-				break;
-			default:
-				console.log(token.raw);
-				break;
-		}
-	})
+
+	console.log(marked.parse(text));
 }
 printReadme();
