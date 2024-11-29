@@ -1,7 +1,14 @@
-console.log(`Available commands:
-readme - print out readme
-scripts - print out available scripts
-ascii - print ascii art
-	- @param1 - text - text to print
-	- @param2 (optional) - font - font to use
-help - print this`)
+import chalk from 'chalk';
+
+console.log(chalk.green.bold('Available commands:'));
+console.log();
+
+const obj = {
+	readme: 'print out readme',
+	scripts: 'print out available npm scripts',
+	meta: 'print out package meta data',
+}
+
+Object.entries(obj).forEach(([key, value]) => {
+	console.log(`${chalk.cyan(key)}: ${value}`);
+});

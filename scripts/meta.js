@@ -1,6 +1,9 @@
+import chalk from 'chalk';
+import path from 'path';
+import fs from 'fs';
+
 const current = process.cwd();
-const path = require('path');
-const package = require(path.join(current, 'package.json'));
+const pkg = JSON.parse(fs.readFileSync(path.join(current, 'package.json')));
 const metaProps = [
 	'name',
 	'author',
@@ -13,5 +16,8 @@ const metaProps = [
 	'maintainers',
 	'version',
 ]
-console.log(`Meta data:
-${metaProps.filter(prop => package[prop]).map(prop => `"${prop}": "${package[prop]}"`).join(',\n')}`);
+
+console.log(chalk.green.bold('Package meta data:\n'));
+metaProps.filter(prop => pkg[prop]).forEach(prop => {
+	console.log(`${chalk.cyan(prop)}: ${pkg[prop]}`);
+});

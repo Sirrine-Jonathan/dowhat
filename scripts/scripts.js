@@ -1,7 +1,12 @@
+import path from 'path';
+import fs from 'fs';
+import chalk from 'chalk';
+
 const current = process.cwd();
-const path = require('path');
-const package = require(path.join(current, 'package.json'));
-console.log(`Available npm scripts:
-${Object.entries(package.scripts).map(([key, value]) => `"${key}": "${value}"`).join(',\n')}`);
-
-
+const pkg = JSON.parse(fs.readFileSync(path.join(current, 'package.json')));
+console.log(chalk.green.bold('NPM scripts:\n'));
+Object.entries(pkg.scripts).forEach(([key, value]) => {
+	if (!key) return;
+	if (!value) return;
+	console.log(`${chalk.cyan(key)}: ${value}`);
+});

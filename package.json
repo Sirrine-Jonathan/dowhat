@@ -2,10 +2,9 @@
   "name": "dowhat",
   "version": "1.0.8",
   "description": "CLI to print out readme and available npm scripts in the package",
-  "main": "index.js",
   "repository": "https://github.com/Sirrine-Jonathan/dowhat",
+  "type": "module",
   "scripts": {
-    "test": "jest",
     "start": "node bin/main.js",
     "deploy": "npm version patch && npm publish --access public"
   },
@@ -20,6 +19,7 @@
     "dowhat": "bin/main.js"
   },
   "dependencies": {
+    "@inquirer/prompts": "^7.1.0",
     "chalk": "^4.1.2",
     "figlet": "^1.8.0",
     "marked": "^15.0.2"

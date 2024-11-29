@@ -1,26 +1,39 @@
 #! /usr/bin/env node
 
-const figlet = require('figlet');
+import figlet from 'figlet';
+import { input } from '@inquirer/prompts';
+import chalk from 'chalk';
 
-switch(process.argv[2]) {
-	case 'readme':
-		require('../scripts/readme');
-		break;
-	case 'scripts':
-		require('../scripts/scripts');
-		break;
-	case 'help':
-		require('../scripts/help');
-		break;
-	case 'meta':
-		require('../scripts/meta');
-		break;
-	default:
-		main(() => {
-			require('../scripts/help');
-		});
-		break;
+const promptNextScript = async () => {
+	console.log('...');
+	const script = await input({ message: 'Which would you like to run?\n>>' });
+	runScript(script);
 }
+
+const runScript = async (script) => {
+	switch(script) {
+		case 'readme':
+			await import('../scripts/readme.js');
+			break;
+		case 'scripts':
+			await import('../scripts/scripts.js');
+			break;
+		case 'help':
+			await import('../scripts/help.js');
+			break;
+		case 'meta':
+			await import('../scripts/meta.js');
+			break;
+		default:
+			main(async () => {
+				await import('../scripts/help.js');
+				promptNextScript();
+			});
+			break;
+	}
+}
+
+runScript(process.argv[2]);
 
 function main(callback) {
 	figlet("Do What?", function (err, data) {
@@ -28,7 +41,8 @@ function main(callback) {
 			return;
 		}
 		console.log(data);
-		console.log("CLI for your NPM package");
+		console.log(chalk.green.bold("CLI for your NPM package"));
+		console.log();
 		callback();
 	})
 }

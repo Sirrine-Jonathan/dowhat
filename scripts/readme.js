@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const lexer = require('marked').lexer;
-const chalk = require('chalk');
+import fs from 'fs';
+import path from 'path';
+import { lexer } from 'marked';
+import chalk from 'chalk';
 const current = process.cwd();
 const printReadme = async () => {
 	const readmePath = path.join(current, 'README.md');
