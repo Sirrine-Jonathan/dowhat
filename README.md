@@ -12,4 +12,5 @@ Usage:
 
 - Run `dowhat readme` to view your readme file in the terminal
 - Run `dowhat scripts` to see a list of npm scripts in you package.json
+- Run `dowhat meta` to see meta information about your package
 - Run `dowhat help` to see a list of available commands
