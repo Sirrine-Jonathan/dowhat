@@ -1,6 +1,6 @@
 {
   "name": "dowhat",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "CLI to print out readme and available npm scripts in the package",
   "repository": "https://github.com/Sirrine-Jonathan/dowhat",
   "type": "module",
