@@ -2,7 +2,10 @@
   "name": "dowhat",
   "version": "1.0.13",
   "description": "CLI to print out readme and available npm scripts in the package",
-  "repository": "https://github.com/Sirrine-Jonathan/dowhat",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sirrine-Jonathan/dowhat.git"
+  },
   "type": "module",
   "scripts": {
     "start": "node bin/main.js",
