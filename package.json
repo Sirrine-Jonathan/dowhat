@@ -7,9 +7,12 @@
     "url": "git+https://github.com/Sirrine-Jonathan/dowhat.git"
   },
   "type": "module",
+  "main": "index.js",
   "scripts": {
-    "start": "node bin/main.js",
-    "deploy": "npm version patch && npm publish --access public"
+    "start": "node index.js",
+    "deploy": "npm version patch && npm publish --access public",
+    "postinstall": "node scripts/postinstall.js",
+    "postuninstall": "node scripts/postuninstall.js"
   },
   "keywords": [
     "cli",
@@ -18,11 +21,13 @@
   ],
   "author": "sirrineprogramming@gmail.com",
   "license": "ISC",
-  "bin": {
-    "dowhat": "bin/main.js"
+  "directories": {
+    "bin": "bin",
+    "man": "man"
   },
   "dependencies": {
     "chalk": "^4.1.2",
+    "expand-tilde": "^2.0.2",
     "figlet": "^1.8.0",
     "inquirer": "^12.4.1",
     "marked": "^14.1.4",

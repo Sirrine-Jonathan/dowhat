@@ -13,23 +13,23 @@ const promptNextScript = async () => {
 const runScript = async (script) => {
   switch (script) {
     case "readme":
-      await import("../scripts/readme.js");
+      await import("../utils/readme.js");
       break;
     case "scripts":
-      await import("../scripts/scripts.js");
+      await import("../utils/scripts.js");
       break;
     case "help":
-      await import("../scripts/help.js");
+      await import("../utils/help.js");
       break;
     case "meta":
-      await import("../scripts/meta.js");
+      await import("../utils/meta.js");
       break;
     case "git-history":
-      await import("../scripts/git-history.js");
+      await import("../utils/git-history.js");
       break;
     default:
       main(async () => {
-        await import("../scripts/help.js");
+        await import("../utils/help.js");
         promptNextScript();
       });
       break;
@@ -38,7 +38,7 @@ const runScript = async (script) => {
 
 runScript(process.argv[2]);
 
-function main(callback) {
+export function main(callback) {
   figlet("Do What?", function (err, data) {
     if (err) {
       return;

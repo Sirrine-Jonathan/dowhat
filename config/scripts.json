@@ -1,0 +1,13 @@
+{
+  "manPages": {
+		"manSource": "../man/dowhat.1",
+    "unixManDir": "/usr/local/share/man/man1",
+    "homeManDir": "~/.local/share/man/man1",
+    "npmGlobalDir": "<npm-global-root>/../man",
+    "fallbackDirs": {
+      "linux": "/usr/share/man/man1",
+      "macos": "/usr/local/share/man/man1",
+      "windows": "~/.local/share/man/man1"
+    }
+  }
+}

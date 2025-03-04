@@ -1,0 +1,75 @@
+.TH DOWHAT 1 "June 2024" "dowhat 1.0.13" "User Commands"
+
+.SH NAME
+dowhat \- CLI tool for getting quick information about an npm package
+
+.SH SYNOPSIS
+.B dowhat
+[\fICOMMAND\fR]
+
+.SH DESCRIPTION
+.B dowhat
+is a command-line interface tool that provides quick access to information about your npm package directly in the terminal. If run without arguments, it displays a help message and prompts for a command.
+
+.SH COMMANDS
+.TP
+.B readme
+Displays the package's README.md file formatted for the terminal.
+
+.TP
+.B scripts
+Lists all available npm scripts defined in the package.json file.
+
+.TP
+.B meta
+Shows meta information about the package from package.json.
+
+.TP
+.B git-history
+Displays a list of recently checked out git branches.
+
+.TP
+.B help
+Shows a list of all available commands.
+
+.SH USAGE EXAMPLES
+.TP
+View readme in terminal:
+.B dowhat readme
+
+.TP
+List npm scripts:
+.B dowhat scripts
+
+.TP
+Show package metadata:
+.B dowhat meta
+
+.TP
+Display git history:
+.B dowhat git-history
+
+.TP
+Show help:
+.B dowhat help
+
+.SH INSTALLATION
+Install globally:
+.PP
+npm install -g dowhat
+.PP
+Or as a dev dependency:
+.PP
+npm install --save-dev dowhat
+
+.SH AUTHOR
+Written by Jonathan Sirrine <sirrineprogramming@gmail.com>
+
+.SH REPORTING BUGS
+Report bugs to: https://github.com/Sirrine-Jonathan/dowhat/issues
+
+.SH COPYRIGHT
+Copyright © 2024 Jonathan Sirrine. License ISC.
+
+.SH SEE ALSO
+npm(1), node(1)
