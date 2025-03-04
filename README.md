@@ -1,6 +1,7 @@
 ## CLI for your NPM package
 
-![NPM Version](https://img.shields.io/npm/v/dowhat?style=for-the-badge) ![NPM Downloads](https://img.shields.io/npm/dw/dowhat?style=for-the-badge)
+![NPM Version](https://img.shields.io/npm/v/dowhat?style=for-the-badge) ![NPM Downloads](https://img.shields.io/npm/dw/dowhat?style=for-the-badge) ![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/dowhat?style=for-the-badge)
+
 
 ### View information about your npm package in the terminal
 
