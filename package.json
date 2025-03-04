@@ -21,6 +21,9 @@
   ],
   "author": "sirrineprogramming@gmail.com",
   "license": "ISC",
+  "bin": {
+    "dowhat": "bin/cli.js"
+  },
   "directories": {
     "bin": "bin",
     "man": "man"
