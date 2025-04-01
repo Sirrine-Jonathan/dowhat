@@ -3,36 +3,59 @@
 import figlet from "figlet";
 import { input } from "@inquirer/prompts";
 import chalk from "chalk";
+import gitHistory from "../utils/git-history.js";
+import help from "../utils/help.js";
+import meta from "../utils/meta.js";
+import readme from "../utils/readme.js";
+import listScripts from "../utils/scripts.js";
 
-const promptNextScript = async () => {
+const promptNextScript = async (msg) => {
   console.log("...");
-  const script = await input({ message: "Which would you like to run?\n>>" });
+  const script = await input({ message: msg });
   runScript(script);
 };
 
 const runScript = async (script) => {
-  switch (script) {
+  let promptAgain = true;
+  let message = "";
+  switch (script?.trim().toLowerCase()) {
     case "readme":
-      await import("../utils/readme.js");
+      readme();
       break;
     case "scripts":
-      await import("../utils/scripts.js");
+      listScripts();
       break;
     case "help":
-      await import("../utils/help.js");
+      promptAgain = false;
+      help();
+      promptNextScript("Which would you like to run?\n>>");
       break;
     case "meta":
-      await import("../utils/meta.js");
+      meta();
       break;
     case "git-history":
-      await import("../utils/git-history.js");
+      gitHistory();
+      break;
+    case "exit":
+      promptAgain = false;
+      console.log(chalk.magenta.bold("Goodbye!"));
       break;
     default:
-      main(async () => {
-        await import("../utils/help.js");
-        promptNextScript();
-      });
+      promptAgain = false;
+      if (script) {
+        console.log(chalk.red.bold(`Unknown command: ${script}`));
+        help();
+        promptNextScript("Which would you like to run?\n>>");
+      } else {
+        main(() => {
+          help();
+          promptNextScript("Which would you like to run?\n>>");
+        });
+      }
       break;
+  }
+  if (promptAgain) {
+    promptNextScript("\n>>");
   }
 };
 

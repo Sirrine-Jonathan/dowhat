@@ -57,4 +57,6 @@ const gitCheckouts = () => {
   }
 };
 
-gitCheckouts();
+export default function gitHistory() {
+  gitCheckouts();
+}
